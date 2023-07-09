@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react'
 import { Button } from '@mantine/core'
 import axios, { AxiosError } from "axios"
 import { UploadResponse } from '../types/Imgur'
-import { IconBrandTwitterFilled, IconCheck } from "@tabler/icons-react"
-import { showErrorNotification } from '../helpers/notifications'
+import { IconBrandTwitterFilled, IconCheck, IconX } from "@tabler/icons-react"
 import { notifications } from '@mantine/notifications'
 
 type Props = {
@@ -68,7 +67,15 @@ const ShareOnTwitterButton: FunctionComponent<Props> = ({
       window.open(tweetUrl, "_blank")
     } catch (error) {
       console.error(error)
-      showErrorNotification("Failed to share", (error as AxiosError).message)
+      notifications.update({
+        id: 'upload-image',
+        color: 'red',
+        title: 'Failed to share',
+        message: (error as AxiosError).message,
+        icon: <IconX />,
+        autoClose: 10000,
+        withCloseButton: true
+      });
     }
   }
 
