@@ -1,5 +1,9 @@
 # Stable diffusion with PremAI.io
 
+This is my submission for [Prem Challenge x LangChain](https://github.com/premAI-io/challenge-with-langchain).
+
+I'm using `Stable Diffusion 2.1` from [PremAI.io](https://premai.io) to generate images from text prompts.
+
 ## Setup
 
 - Clone the project
